@@ -16,11 +16,11 @@ public class Exercise_06_10{
             "", poundList[i], convertToKilogram(poundList[i]));
         }
     }
-
+    //Method to convert kilogram to pound
     public static double convertToPound(double kilogram){
         return kilogram * 0.453;
     }
-
+    //Method to convert pound to kilogram
     public static double convertToKilogram(double pound){
         return pound * 2.204;
     }
