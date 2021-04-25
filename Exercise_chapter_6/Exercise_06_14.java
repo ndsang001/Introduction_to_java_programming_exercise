@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+(Estimate p) p can be computed using the following series:
+m(i) = 4(1 - 1 / 3 + 1 / 5 - 1 / 7 + 1 / 9 - 1 / 11 + ... + (((-1)^i + 1) / (2i - 1)))
+Write a method that returns m(i) for a given i and write a test program that displays
+the following table:
+*/
 package Exercise_chapter_06;
 
 import static java.lang.Math.pow;
@@ -26,11 +27,11 @@ public class Exercise_06_14 {
          }*/
         
         System.out.println("\ni           m(i)     ");
-	System.out.println("---------------------");
-	for (int i = 1; i <= 901; i += 100) {
+	    System.out.println("---------------------");
+	    for (int i = 1; i <= 901; i += 100) {
             System.out.printf("%-12d", i);
             System.out.printf("%-6.4f\n", pi(i));
-	}
+	    }
     }
     
     public static double pi(int i){
@@ -38,9 +39,11 @@ public class Exercise_06_14 {
         double piValue = 4;
         
         for(int j = 1; j <= i; ++j){
+
             x += (pow(-1,j+1)/(2*j-1));
+        
         }
-         
+     
         return piValue*x;
     }
 }
