@@ -23,7 +23,7 @@ public class Exercise_06_24 {
         
         //Print current time
         System.out.println(currentTime(timeZone));
-
+		input.close();
     } 
     
     //Method to obtain the current time
