@@ -19,7 +19,7 @@ public class Exercise_07_15{
         for(int i = 0; i < 10; ++i){
             list[i] = input.nextInt();
         }
-
+        //Assign new array being eliminated array
         int[] result = eliminateDuplicates(list);
 
         for(int i = 0; i < 10; ++i){
@@ -29,7 +29,7 @@ public class Exercise_07_15{
         }
         input.close();
     }
-
+    //Method to emilinate the duplicate number
     public static int[] eliminateDuplicates(int[] list){
         int[] result = new int[10];
         for(int i = 0; i < 10; ++i){
@@ -39,10 +39,10 @@ public class Exercise_07_15{
         }
         return result;
     }
-
-    public static boolean isDistinct(int list, int number, int index){
-        for(index; index < list.length(); index++){
-            if(number == list[index]){
+    //Method to check a number is distinct?
+    public static boolean isDistinct(int[] list, int number, int index){
+        for(int i = index + 1; i < list.length; i++){
+            if(number == list[i]){
                 return false;
             }
         }
