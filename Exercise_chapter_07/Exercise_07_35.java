@@ -5,7 +5,7 @@ public class Exercise_07_35 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         //words in the array
-        String[] words = {"write", "read", "long", "short", "black"};
+        String[] words = {"write", "read", "long", "short", "black", "program"};
         //obtain random word from the words list
         String word = getWord(words);
         //Continue or stop the game
@@ -25,25 +25,35 @@ public class Exercise_07_35 {
 
     //method to let user guess the word
     public static void guess(String word, Scanner input){
-
+        HashSet<String> guessLetter = new HashSet<>();
+        int missingTime = 0;
         do{
+            String s = getLetter(input, guessLetter, word);
+            if(!isInWord(word, s, guessLetter)){
+                ++missingTime;
+            }
 
-        } while(!)
+        } while(!gameEnd(word, guessLetter));
+        System.out.println("The word is " + word + "." + " You missed " + missingTime + " time");
+    }
 
-        for(int i = 0; i < word.length(); ++i){
-            System.out.print(asterisk());
-            if(i == (word.length() - 1)){ System.out.print(" ");}
-                
+    //method to add the correct guess to the guessLetter list
+    public static boolean isInWord(String word, String s, HashSet<String> guessLetter){
+        if(guessLetter.contains(s)){
+            System.out.println(s + " is already in the word!");
+            return true;
+        } else if(word.contains(s)){
+            guessLetter.add(s);
+            return true;
+        } else{
+            System.out.println(s + " is not in the word!");
+            return false;
         }
-        String letter = input.next();
-        int count = 0;
-        
-
     }
 
     //method to get the guess letter 
-    public static String getLetter(Scanner input){
-        System.out.print("(Guess) Enter a letter in word ");
+    public static String getLetter(Scanner input, HashSet<String> guessLetter, String word){
+        System.out.print("(Guess) Enter a letter in word " + concatLetter(word, guessLetter) + " > ");
         return input.next();
     }
     
@@ -70,11 +80,6 @@ public class Exercise_07_35 {
         return concatString;
     }
     
-    //method to print word after guess
-    //public static String print(String word, String letter){
-        
-    //}
-
     //method to get the word to play game
     public static String getWord(String[] words){
         String word = words[(int)(Math.random()*words.length)];
