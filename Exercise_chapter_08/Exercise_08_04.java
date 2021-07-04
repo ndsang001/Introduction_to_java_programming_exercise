@@ -16,9 +16,10 @@ public class Exercise_08_04 {
 
     //method to display employees and their total hours in increasing order
     public static void print(int[][] workingHours){
-        //Print the week days
+        //print the week days
         System.out.printf("%17s%3s%4s%4s%4s%4s%5s%n%n", "Su", "M", "T",
          "W", "Th", "F", "Sa");
+        //Print the hours list
         for(int i = 0; i < workingHours.length; ++i){
             System.out.printf("%-10s%-5d", "Employee", i);
             for(int j = 0; j < workingHours[i].length; ++j){
